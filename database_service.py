@@ -2,6 +2,7 @@
 #Cloud data base
 #database1-scorchdb116.harperdbcloud.com
 
+#from curses.ascii import TAB
 import harperdb
 #URL of cloud DB
 url = "https://database1-scorchdb116.harperdbcloud.com"
@@ -15,4 +16,16 @@ db = harperdb.HarperDB(
     password=password
 )
 
-print(db.describe_all())
+#Database Varibles
+SCHEMA = "workout_repo"
+TABLE = "workouts"
+TABLE_TODAY = "workout_today"
+
+#Test dictionary
+data = {
+    "video_id": "123",
+    "title": "Test 1"
+}
+
+res = db.insert(SCHEMA, TABLE, [data])
+print(res)
